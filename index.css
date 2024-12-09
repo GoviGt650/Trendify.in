@@ -29,7 +29,7 @@ body {
   flex-wrap: wrap; /* Allow wrapping for smaller screens */
   justify-content: space-between;
   align-items: center;
-  padding: 0px 20px;
+  padding: 8px 20px;
   background-color: #ffffff;
 }
 
@@ -46,7 +46,7 @@ body {
   position: fixed;
   top: 0;
   left: -100%; /* Initially off-screen */
-  width: 40%;
+  width: 70%;
   height: 100%;
   background-color: #ffffff;
   transition: left 0.3s ease;
@@ -178,6 +178,7 @@ body {
 .search-container.active {
   display: block;
   width: 100%;
+  height: ;
  
 }
 
@@ -220,28 +221,60 @@ body {
 /* Bottom Section with Category Links */
 .bottom-nav {
   background-color: #002a5c;
-  padding: 10px;
+  padding: 10px 0;
+  overflow: hidden; /* Prevents content from overflowing */
+  box-sizing: border-box; /* Includes padding in width calculations */
+  width: 100%; /* Ensures the container spans the full width */
 }
 
 .category-links {
   display: flex;
-  list-style: none;
-  justify-content: center;
+  justify-content: center; /* Centers the links */
+  align-items: center; /* Aligns the links vertically */
+  gap: 10px; /* Adds spacing between items */
+  list-style: none; /* Removes bullet points */
+  margin: 0; /* Resets margin */
+  padding: 0; /* Resets padding */
+  flex-wrap: wrap; /* Allows wrapping of items for smaller screens */
 }
 
 .category-links li {
-  margin: 0 15px;
+  margin: 0; /* Removes excess margin */
+  padding: 5px; /* Adds spacing around links */
 }
 
 .category-links a {
   color: white;
   text-decoration: none;
-  font-size: 16px;
+  font-size: 20px; /* Adjust font size for mobile */
+  white-space: nowrap; /* Prevents text from breaking into multiple lines */
 }
 
 .category-links a:hover {
   color: #f05a22;
 }
+
+.bottom-nav span {
+  color: #ccc; /* Color for the vertical bars */
+  font-weight: normal;
+}
+
+/* Mobile-specific styles */
+@media (max-width: 768px) {
+  .category-links {
+    flex-direction: row; /* Keeps links in a row */
+    gap: 5px; /* Reduces gap for smaller screens */
+  }
+
+  .category-links li {
+    padding: 2px; /* Reduces padding for links on mobile */
+  }
+
+  .category-links a {
+    font-size: 15px; /* Makes the text smaller for mobile */
+  }
+}
+
 
 /* Media Query for Mobile View */
 @media (max-width: 991px) {
@@ -304,7 +337,22 @@ body {
     flex-wrap: nowrap;
     justify-content: space-between;
     align-items: center;
+    height: 60px;
   }
+
+  .search-container {
+    position: fixed; /* Ensure it stays visible */
+    top: 87px; /* Adjust as per the middle-nav height */
+    left: 0;
+    width: 100%; /* Full screen width */
+    height: 58px;
+    padding: 10px 15px;
+   
+}
+
+.search-bar {
+    width: calc(100% - 30px); /* Adjust for smaller margins */
+}
 
   /* Hamburger menu toggle (on the left) */
   .navbar-toggler {
@@ -616,6 +664,7 @@ body {
 .footer-section ul li a {
   text-decoration: none;
   color: #000000;
+  
 }
 
 .footer-section ul li a:hover {
@@ -666,6 +715,7 @@ body {
     display: block;
     padding-left: 20px;
     list-style: none;
+    font-size: 23px;
   }
   .footer-section h4 {
     display: flex; /* Make h4 block-level */
@@ -722,9 +772,14 @@ body {
     font-size: 18px;
   }
 
+  .social-box-container {
+    flex-wrap: wrap; /* Allow wrapping */
+    justify-content: center;
+  }
+
   .social-box {
-    width: 100%; /* Full width for very small devices */
-    margin: 10px 0;
+    width: 45%; /* Adjust to show 2 boxes per row */
+    margin-bottom: 10px;
   }
 
   .footer-section ul li {
